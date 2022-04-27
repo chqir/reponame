@@ -3,20 +3,19 @@ require "tty-box"
 require "tty-prompt"
 require "thor"
 
+
 print TTY::Box.frame "Gily, A Git Tool"
 prompt = TTY::Prompt.new
 #prompt.multi_select("select files to include:", choices
 require 'optparse'
 options = {}
-
-  
   
   def push
     puts "commit message:"
     commit = gets.chomp
-
+    `git add .`
     `git commit -m "#{commit}"`
-    `git push -u origin main`
+    `git push`
 
   end
 
